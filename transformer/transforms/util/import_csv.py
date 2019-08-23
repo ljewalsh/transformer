@@ -75,9 +75,11 @@ class UtilImportCSVTransform(BaseTransform):
             #go figure it out
             dialect = csv.Sniffer().sniff(response.read())
             response.seek(0)
-        header = csv.Sniffer().has_header(response.read())
-        response.seek(0)
-
+        if not forced_header:
+            #go get it
+            header = csv.Sniffer().has_header(response.read())
+            response.seek(0)
+            
         output = {"line_items": [],"csv_text": "", "header": header, "dialect": forced_dialect}
         # output line-items
         this_line_item = []
