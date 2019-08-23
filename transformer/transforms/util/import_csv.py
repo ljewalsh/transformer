@@ -65,14 +65,16 @@ class UtilImportCSVTransform(BaseTransform):
                 new_file.write(line.splitlines()[0] + "," + "\n")
             response = new_file
             response.seek(0)
-        dialect = csv.Sniffer().sniff(response.read())
-        response.seek(0)
         # these two are not standard dialects, so create them
         csv.register_dialect('comma',delimiter=',')
         csv.register_dialect('semicolon',delimiter=';')
         if forced_dialect != 'default':
             #user has selected a forced dialect, so assign that
             dialect = csv.get_dialect(forced_dialect)
+        else:
+            #go figure it out
+            dialect = csv.Sniffer().sniff(response.read())
+            response.seek(0)
         header = csv.Sniffer().has_header(response.read())
         response.seek(0)
 
