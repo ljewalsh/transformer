@@ -14,7 +14,7 @@ class StringHashtagExtractTransform(BaseTransform):
 
     def transform(self, str_input, **kwargs):
         if not str_input:
-            return u''
+            return []
 
         matches = re.findall(r'[A-Z]?[a-z]?#([a-z]+)', str_input)
         return matches
