@@ -16,7 +16,7 @@ class StringHashtagExtractTransform(BaseTransform):
         if not str_input:
             return []
 
-        matches = re.findall(r'[A-Z]?[a-z]?#([a-z]+)', str_input)
+        matches = re.findall(r'.?#([a-zA-Z][a-zA-Z0-9]+)', str_input)
         return matches
 
 register(StringHashtagExtractTransform())
