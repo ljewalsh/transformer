@@ -2,11 +2,11 @@ from transformer.registry import register
 from transformer.transforms.base import BaseTransform
 import re
 
-class TweetMentionExtractTransform(BaseTransform):
+class TweetMentionsExtractTransform(BaseTransform):
 
     category = 'tweet'
-    name = 'mention_extract'
-    label = 'Extract Mention'
+    name = 'mentions_extract'
+    label = 'Extract Mentions'
     help_text = 'Find all mentions in a tweet.'
 
     noun = 'Text'
@@ -18,4 +18,4 @@ class TweetMentionExtractTransform(BaseTransform):
 
         return re.findall(r'.?@([a-zA-Z0-9_]+)', tweet_input)
 
-register(TweetMentionExtractTransform())
+register(TweetMentionsExtractTransform())

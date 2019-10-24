@@ -1,9 +1,9 @@
 import unittest
-import mention_extract
+import mentions_extract
 
 class TestTweetMentionExtractTransform(unittest.TestCase):
-    def test_mention_extract(self):
-        transformer = mention_extract.TweetMentionExtractTransform()
+    def test_mentions_extract(self):
+        transformer = mentions_extract.TweetMentionsExtractTransform()
         self.assertEqual(transformer.transform(u'[]'), [])
         self.assertEqual(transformer.transform(None), [])
         self.assertEqual(transformer.transform(u'I have no mentions'), [])

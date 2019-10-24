@@ -1,9 +1,9 @@
 import unittest
-import hashtag_extract
+import hashtags_extract
 
-class TestTweetHashtagExtractTransform(unittest.TestCase):
-    def test_hashtag_extract(self):
-        transformer = hashtag_extract.TweetHashtagExtractTransform()
+class TestTweetHashtagsExtractTransform(unittest.TestCase):
+    def test_hashtags_extract(self):
+        transformer = hashtags_extract.TweetHashtagsExtractTransform()
         self.assertEqual(transformer.transform(u'[]'), [])
         self.assertEqual(transformer.transform(None), [])
         self.assertEqual(transformer.transform(u'I have no hashtags'), [])

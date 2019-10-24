@@ -2,11 +2,11 @@ from transformer.registry import register
 from transformer.transforms.base import BaseTransform
 import re
 
-class TweetHashtagExtractTransform(BaseTransform):
+class TweetHashtagsExtractTransform(BaseTransform):
 
     category = 'tweet'
-    name = 'hashtag_extract'
-    label = 'Extract Hashtag'
+    name = 'hashtags_extract'
+    label = 'Extract Hashtags'
     help_text = 'Find all hashtags in a string.'
 
     noun = 'Text'
@@ -19,4 +19,4 @@ class TweetHashtagExtractTransform(BaseTransform):
         matches = re.findall(r'.?#([a-zA-Z][a-zA-Z0-9]+)', tweet_input)
         return matches
 
-register(TweetHashtagExtractTransform())
+register(TweetHashtagsExtractTransform())
